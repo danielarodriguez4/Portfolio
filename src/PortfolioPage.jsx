@@ -13,16 +13,9 @@ const PortfolioPage = () => {
 
   return (
     <div className="container">
-      {/* Header */}
+      {/* Header con redes sociales */}
       <header className="header">
         <h1>Nombre del Artista</h1>
-        <nav>
-          <ul>
-            <li><a href="#portfolio">Portafolio</a></li>
-            <li><a href="#about">Sobre mí</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-        </nav>
       </header>
 
       {/* Hero Section */}
@@ -61,16 +54,20 @@ const PortfolioPage = () => {
         <p>Aquí puedes escribir una descripción sobre el artista, su trayectoria y experiencia.</p>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="contact">
-        <h2>Contacto</h2>
-        <p>Puedes contactarme a través de mis redes sociales:</p>
-        <div className="social-links">
-          <a href="#">📷 Instagram</a>
-          <a href="#">🐦 Twitter</a>
-          <a href="#">✉️ Email</a>
-        </div>
-      </section>
+      <div className="whatsapp-float">
+         <a href="https://wa.me/573207041614" target="_blank" rel="noopener noreferrer">
+         <img src="/ws.png" alt="WhatsApp" />
+         </a>
+      </div>
+
+      <div className="Instagram-float">
+         <a href="https://www.instagram.com/omardarktattoo" target="_blank" rel="noopener noreferrer">
+         <img src="/ig.png" alt="Instagram" />
+         </a>
+      </div>
+      
+
+
     </div>
   );
 };
