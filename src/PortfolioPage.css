@@ -13,7 +13,7 @@
 /* Texto con la fuente "Dancing Script" (transparente) */
 .header-title .text-back {
   font-family: 'Dancing Script', cursive;
-  font-size: 100px;
+  font-size: 50px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.2); /* Blanco transparente */
   position: absolute;
@@ -26,7 +26,7 @@
 /* Texto con la fuente "Baskervville" (sólido) */
 .header-title .text-front {
   font-family: 'Baskervville', serif;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
   color: white; /* Blanco sólido */
   position: absolute;
@@ -44,7 +44,6 @@ body {
   font-family: 'Baskervville', serif;
   background-color: #000000;
   color: #ffffff;
-  font-size: 30px;
 }
 
 .container {
@@ -130,10 +129,11 @@ body {
 .hero {
   text-align: center;
   padding: 50px 20px;
+  font-size: 18px;
 }
 
 .hero h2 {
-  font-size: 40px;
+  font-size: 20px;
 }
 
 /* Portfolio Section */
@@ -220,38 +220,24 @@ body {
 } 
 
 /* Modal */
+/* Estilos para el modal */
 .modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
-  z-index: 1000;
-}
-
-.modal-content {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
   display: flex;
-  align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  max-width: fit-content; /* Se ajusta al tamaño de la imagen */
-  max-height: fit-content;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transform: scale(0.30); /* Reduce la imagen al 80% de su tamaño original */
+  align-items: center;
 }
 
-
-/* Estilos de la imagen dentro del modal */
-.modal-image {
-  max-width: 100%; /* No sobrepasa el tamaño del modal */
-  max-height: 90vh; /* Se ajusta al alto de la pantalla sin desbordar */
-  object-fit: scale-down; /* Se asegura de mantener el tamaño original sin recortarse */
-  display: block;
+/* Ajuste de la imagen dentro del modal */
+.modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain; /* Asegura que la imagen no se recorte */
 }
 
 

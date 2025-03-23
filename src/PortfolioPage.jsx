@@ -66,8 +66,8 @@ const PortfolioPage = () => {
 
         {/* About Section */}
         <section id="about" className="about">
-          <h2>Sobre mí</h2>
-          <p>Aquí puedes escribir una descripción sobre el artista, su trayectoria y experiencia.</p>
+          <h2>Otra sección</h2>
+          <p>Te quiero mucho precioso</p>
         </section>
 
         {/* Botón flotante de "Canales de Contacto" */}
