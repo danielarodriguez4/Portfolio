@@ -3,6 +3,7 @@ import "./PortfolioPage.css"; // Archivo de estilos CSS externo
 
 const PortfolioPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [isOpen, setIsOpen] = useState(false); // Estado para abrir/cerrar el menú
 
   const images = [
     "/legs.jpeg", "/legs2.jpeg", "/leg2.jpeg", "/leg1.jpeg", "/woman1.jpeg",
@@ -13,9 +14,13 @@ const PortfolioPage = () => {
 
   return (
     <div className="container">
-      {/* Header con redes sociales */}
+      {/* Header con imagen de fondo */}
       <header className="header">
-        <h1>Nombre del Artista</h1>
+        <div className="header-overlay"></div>
+        <div className="header-content">
+          <h1>Omar Álvarez</h1>
+          <p>Explorando el arte del tatuaje con pasión y detalle.</p>
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -28,7 +33,7 @@ const PortfolioPage = () => {
 
       {/* Portfolio Section */}
       <section id="portfolio" className="portfolio">
-        <h2>Mis Trabajos</h2>
+        <h2>Conoce mi trabajo</h2>
         <div className="gallery grid-layout">
           {images.map((src, index) => (
             <div key={index} className="artwork" onClick={() => setSelectedImage(src)}>
@@ -54,20 +59,24 @@ const PortfolioPage = () => {
         <p>Aquí puedes escribir una descripción sobre el artista, su trayectoria y experiencia.</p>
       </section>
 
-      <div className="whatsapp-float">
-         <a href="https://wa.me/573207041614" target="_blank" rel="noopener noreferrer">
-         <img src="/ws.png" alt="WhatsApp" />
-         </a>
+      {/* Botón flotante de "Canales de Contacto" */}
+      <div className="contact-float">
+        <button className="contact-button" onClick={() => setIsOpen(!isOpen)}>
+          Canales de contacto
+        </button>
+
+        {/* Opciones desplegables */}
+        {isOpen && (
+          <div className="contact-options">
+            <a href="https://wa.me/573207041614" target="_blank" rel="noopener noreferrer">
+              <img src="/ws.png" alt="WhatsApp" /> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/omardarktattoo" target="_blank" rel="noopener noreferrer">
+              <img src="/ig.png" alt="Instagram" /> Instagram
+            </a>
+          </div>
+        )}
       </div>
-
-      <div className="Instagram-float">
-         <a href="https://www.instagram.com/omardarktattoo" target="_blank" rel="noopener noreferrer">
-         <img src="/ig.png" alt="Instagram" />
-         </a>
-      </div>
-      
-
-
     </div>
   );
 };

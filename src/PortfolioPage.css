@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&display=swap');
+
+
 /* Estilos generales */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Baskervville', serif;
   background-color: #000000;
   color: #ffffff;
+  font-size: 30px;
 }
 
 .container {
@@ -15,30 +19,81 @@ body {
 /* Header */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Centrar contenido */
   align-items: center;
-  background-color: #702a2a;
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Altura del header */
+  background-image: url("/header.jpeg"); /* Imagen de fondo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
-  padding: 20px;
+  border-radius: 10px;
 }
 
+/* Agregar un overlay oscuro para mejorar el contraste */
+.header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Oscurecer la imagen */
+}
+
+/* Asegurar que el contenido esté por encima del overlay */
+.header-content {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  max-width: 80%;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.header p {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+/* Estilos para la navegación */
 .header ul {
   list-style: none;
   display: flex;
   gap: 15px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .header a {
-  color: rgb(0, 0, 0);
+  color: white; /* Color blanco para que contraste */
   text-decoration: none;
+  font-weight: bold;
 }
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  .header p {
+    font-size: 1rem;
+  }
+}
+
 
 /* Hero Section */
 .hero {
   text-align: center;
   padding: 50px 20px;
   background: black
-  color: white;
 }
 
 .hero h2 {
@@ -237,4 +292,77 @@ body {
 
 .Instragram-float img:hover {
   transform: scale(1.1);
+}
+
+/* Estilos para el botón flotante de "Canales de contacto" */
+/* Estilos para el botón flotante de "Canales de contacto" */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.contact-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.contact-button {
+  background-color: #702a2a;
+  color: white;
+  border: none;
+  padding: 16px 25px;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, transform 0.2s;
+  animation: blink 1.2s infinite; /* 🔥 Efecto de parpadeo */
+}
+
+.contact-button:hover {
+  background-color: #5a2222;
+  transform: scale(1.05);
+}
+
+/* Opciones desplegables */
+.contact-options {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.contact-options a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  transition: background 0.3s;
+}
+
+.contact-options a:last-child {
+  border-bottom: none;
+}
+
+.contact-options img {
+  width: 28px;
+  height: 28px;
+}
+
+.contact-options a:hover {
+  background: #f4f4f4;
 }
