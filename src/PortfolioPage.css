@@ -1,0 +1,169 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+}
+
+.header ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+}
+
+.hero h2 {
+  font-size: 2rem;
+}
+
+/* Portfolio Section */
+.portfolio {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.artwork img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* About Section */
+.about {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: white;
+}
+
+/* Contact Section */
+.contact {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.social-links a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #2575fc;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+/* Galería de imágenes en cuadrícula 4x4 */
+.gallery {
+  display: grid !important; /* Asegurar que está en grid */
+  grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
+  gap: 10px; /* Espacio entre imágenes */
+  padding: 20px 0;
+}
+
+/* Cada imagen en la galería */
+.artwork img {
+  width: 100%;  /* Que ocupe el contenedor */
+  height: auto; /* Mantener proporción */
+  max-height: 300px; /* Evita que sean demasiado grandes */
+  object-fit: contain; /* Mostrar la imagen completa sin recortar */
+  border-radius: 8px;
+}
+
+
+.artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Efecto hover */
+.artwork:hover {
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(1, 1fr); /* 1 columna en móviles */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .header ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+} 
+
+/* Modal */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 100%; /* Permite que la imagen mantenga su tamaño original */
+  max-height: 100%; /* Permite que la imagen mantenga su tamaño original */
+  object-fit: contain; /* Asegura que la imagen no se recorte */
+  border-radius: 8px;
+}
+
+
+
+/* Botón de cerrar */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
