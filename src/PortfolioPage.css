@@ -130,17 +130,24 @@ body {
 
 .hero {
   display: flex;
-  justify-content: center; /* Centrar contenido */
   align-items: center;
+  justify-content: center;
   position: relative;
   width: 95%;
-  height: 80vh; /* Altura del header */
-  background-image: url("/header.jpeg"); /* Imagen de fondo */
+  height: 80vh;
+  background-image: url("/header.jpeg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   color: white;
+  margin: auto;
   border-radius: 10px;
+  overflow: hidden;
 }
+
+
+
+
 
 /* Estilos para la navegación */
 
@@ -266,43 +273,40 @@ body {
 /* Modal */
 /* Estilos para el modal */
 .modal {
-  position: fixed;
+  position: fixed;  /* 🔹 Se fija en toda la pantalla */
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semitransparente */
+  width: 100%;
+  height: 100vh; /* 🔹 Ocupa toda la altura de la pantalla */
+  background: rgba(0, 0, 0, 0.9); /* 🔹 Fondo oscuro */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  z-index: 1000; /* 🔹 Se asegura de estar encima de todo */
 }
 
-/* Ajuste de la imagen dentro del modal */
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
 .modal img {
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain; /* Asegura que la imagen no se recorte */
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  border-radius: 8px;
 }
 
-
-.modal-image-container {
-  width: 50%; /* La imagen ocupará la mitad del modal */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* Botón de cerrar */
 .close {
   position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 50px;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
   color: white;
   cursor: pointer;
-  font-weight: bold;
 }
+
 
 .image-container {
   overflow: hidden;
