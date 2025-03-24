@@ -139,6 +139,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   margin-top: 30px;
+  margin-right: 60px;
   border-radius: 10px;
 }
 
@@ -157,16 +158,14 @@ body {
 }
 
 .hero-content {
-  position: relative; /* Para que esté sobre el ::before */
   z-index: 2; /* Asegura que el texto esté sobre el before */
   color: white; /* Asegurar legibilidad */
-  text-align: center;
+  text-align: justify;
   border-radius: 9px;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centrar verticalmente */
   align-items: center;
-  padding: 20px;
 }
 
 .hero h2 {
