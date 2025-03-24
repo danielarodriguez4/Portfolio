@@ -25,26 +25,31 @@ const LanguageSelector = ({ onSelectLanguage }) => {
 };
 
 const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    backgroundColor: "#000",
-    color: "#fff",
-    fontSize: "20px",
-  },
-  button: {
-    margin: "10px",
-    padding: "10px 20px",
-    fontSize: "18px",
-    backgroundColor: "#702a2a",
-    color: "white",
-    border: "none",
-    cursor: "pointer",
-    borderRadius: "5px",
-  },
-};
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      width: "100vw",
+      backgroundColor: "#000",
+      color: "#fff",
+      fontSize: "20px",
+      textAlign: "center", // Asegura que el texto se centre correctamente
+      padding: "20px", // Agrega espacio alrededor para evitar que quede pegado a los bordes
+      boxSizing: "border-box", // Evita que el padding afecte el tamaño total del contenedor
+    },
+    button: {
+      margin: "10px",
+      padding: "10px 20px",
+      fontSize: "18px",
+      backgroundColor: "#702a2a",
+      color: "white",
+      border: "none",
+      cursor: "pointer",
+      borderRadius: "5px",
+    },
+  };
+  
 
 export default LanguageSelector;

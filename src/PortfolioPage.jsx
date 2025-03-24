@@ -32,8 +32,8 @@ const PortfolioPage = () => {
         "I am Omar Álvarez, a tattoo artist with 8 years of experience, currently living in Medellín, Colombia, but with the possibility of bringing my art anywhere in the world. My passion for art led me to specialize in the traditional style, where solid lines, vibrant colors, and timeless aesthetics become my signature.",
       portfolio: "See My Work",
       contact: "Contact Channels",
-      otherSection: "Another Section",
-      otherContent: "I love you so much, precious"
+      otherSection: "Section",
+      otherContent: "I love you so much, handsome"
     },
   };
 
