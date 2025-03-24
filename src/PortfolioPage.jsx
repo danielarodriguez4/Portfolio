@@ -1,39 +1,41 @@
 import React, { useState, useEffect } from "react";
-import LanguageSelector from "./LanguageSelector";
+import { useNavigate } from "react-router-dom";
 import "./PortfolioPage.css";
 
 const PortfolioPage = () => {
-  const [language, setLanguage] = useState(localStorage.getItem("language") || "");
+  const navigate = useNavigate();
+  const language = localStorage.getItem("language") || "";
+
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  // Redirige si no hay idioma seleccionado
   useEffect(() => {
-    if (!language) return;
-    localStorage.setItem("language", language);
-  }, [language]);
-
-  if (!language) {
-    return <LanguageSelector onSelectLanguage={setLanguage} />;
-  }
+    if (!language) {
+      navigate("/");
+    } else {
+      localStorage.setItem("language", language);
+    }
+  }, [language, navigate]);
 
   const texts = {
     es: {
       aboutMe: "Sobre mí",
       description:
-        "Soy Omar Álvarez, tatuador con 8 años de experiencia, viviendo actualmente en Medellín, Colombia, pero con posibilidad de llevar mi arte a cualquier lugar del mundo. Mi pasión por el arte me llevó a especializarme en el estilo tradicional, donde las líneas sólidas, los colores vibrantes y la estética atemporal se convierten en mi sello personal.",
+        "Soy Omar, tatuador con 8 años de experiencia, viviendo actualmente en Medellín, Colombia, pero con posibilidad de llevar mi arte a cualquier lugar del mundo. Mi pasión por el arte me llevó a especializarme en el estilo tradicional, donde las líneas sólidas, los colores vibrantes y la estética atemporal se convierten en mi sello personal.",
       portfolio: "Conoce mi trabajo",
       contact: "Canales de contacto",
       otherSection: "Otra sección",
-      otherContent: "Te quiero mucho precioso"
+      otherContent: "Te quiero mucho precioso",
     },
     en: {
-      aboutMe: "About Me",
+      aboutMe: "About me",
       description:
-        "I am Omar Álvarez, a tattoo artist with 8 years of experience, currently living in Medellín, Colombia, but with the possibility of bringing my art anywhere in the world. My passion for art led me to specialize in the traditional style, where solid lines, vibrant colors, and timeless aesthetics become my signature.",
-      portfolio: "See My Work",
-      contact: "Contact Channels",
+        "My name is Omar, a passionate tattoo artist with eight years of experience, currently based in Medellín, Colombia. My artistry knows no borders, as I strive to bring my work to every corner of the world. Specializing in the traditional style, I blend bold lines, vibrant colors, and a timeless aesthetic to create tattoos that leave a lasting impression.",
+      portfolio: "See my work",
+      contact: "Contact channels",
       otherSection: "Section",
-      otherContent: "I love you so much, handsome"
+      otherContent: "I love you so much, handsome",
     },
   };
 
@@ -72,6 +74,7 @@ const PortfolioPage = () => {
         </div>
       </section>
 
+      {/* Modal para imágenes */}
       {selectedImage && (
         <div className="modal" onClick={() => setSelectedImage(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -86,6 +89,7 @@ const PortfolioPage = () => {
         <p>{texts[language].otherContent}</p>
       </section>
 
+      {/* Botón flotante de contacto */}
       <div className="contact-float">
         <button className="contact-button" onClick={() => setIsOpen(!isOpen)}>
           {texts[language].contact}
