@@ -131,7 +131,7 @@ body {
   justify-content: center; /* Centrar contenido */
   align-items: center;
   position: relative;
-  width: 100%;
+  width: 95%;
   height: 80vh; /* Altura del header */
   background-image: url("/header.jpeg"); /* Imagen de fondo */
   background-size: cover;
@@ -139,6 +139,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   margin-top: 30px;
+  margin-right: 30px;
   border-radius: 10px;
 }
 
