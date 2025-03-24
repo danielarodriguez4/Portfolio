@@ -17,7 +17,7 @@
   font-weight: 700;
   color: rgba(255, 255, 255, 0.2); /* Blanco transparente */
   position: absolute;
-  top: 155px;
+  top: 160px;
   left: 50%; /* Centrar en relación con el padre */
   transform: translateX(-50%); /* Asegura el centrado exacto */
   z-index: 1;
@@ -66,7 +66,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   border-radius: 10px;
-  margin-bottom: 50px ;
+  margin-bottom: 5px ;
 }
 
 /* Agregar un overlay oscuro para mejorar el contraste */
@@ -91,7 +91,6 @@ body {
 .header h1 {
   font-size: 40px;
   font-weight: bold;
-  margin: 0;
 }
 
 .header p {
@@ -155,7 +154,7 @@ body {
 
 .hero h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
