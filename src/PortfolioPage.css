@@ -157,19 +157,15 @@ body {
   font-size: 24px;
   margin-bottom: 10px;
   font-weight: bold;
-  margin: 0;
 }
 
 .hero p {
   font-size: 18px;
 }
 
-
-
 /* Portfolio Section */
 .portfolio {
   text-align: center;
-  padding: 50px 20px;
 }
 
 .artwork img {
@@ -184,6 +180,7 @@ body {
   text-align: center;
   color: white;
   font-size: 18px;
+  justify-content: center;
 }
 
 /* Contact Section */
@@ -411,8 +408,3 @@ body {
   height: 24px;
 }
 
-.hero,
-.portfolio,
-.about {
-    padding: 20px 20px; /* Reducido de 50px a 30px */
-}
