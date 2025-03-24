@@ -36,6 +36,7 @@ const PortfolioPage = () => {
 
         {/* Hero Section */}
         <section className="hero">
+
           <div className="hero-content">
             <h2>Sobre mí</h2>
             <p>Soy Omar Álvarez, tatuador con 8 años de experiencia, viviendo actualmente en Medellín, Colombia, pero con posibilidad de llevar mi arte a cualquier lugar del mundo. Mi pasión por el arte me llevó a especializarme en el estilo tradicional, donde las líneas sólidas, los colores vibrantes y la estética atemporal se convierten en mi sello personal. A lo largo de mi trayectoria, he perfeccionado mi técnica para crear tatuajes llenos de carácter y personalidad. Me esfuerzo en cada pieza para garantizar calidad y detalle, asegurando que cada diseño perdure en el tiempo.</p>
