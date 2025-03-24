@@ -66,6 +66,7 @@ body {
   background-repeat: no-repeat;
   color: white;
   border-radius: 10px;
+  margin-bottom: 50px ;
 }
 
 /* Agregar un overlay oscuro para mejorar el contraste */
@@ -138,8 +139,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   color: white;
-  margin-top: 30px;
-  margin-right: 60px;
+  margin: auto;
   border-radius: 10px;
 }
 
