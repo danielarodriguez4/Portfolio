@@ -136,6 +136,24 @@ body {
   font-size: 20px;
 }
 
+.hero-content {
+  background-image: url("/header.jpeg");
+  background-size: cover;  /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center center;  /* Centra la imagen */
+  background-repeat: no-repeat;  /* Evita que se repita */
+  padding: 100px 20px; /* Ajusta según sea necesario */
+  color: white; /* Asegura que el texto sea legible */
+  text-align: center;
+  border-radius: 9px;
+  height: 20vh; /* Altura del header */
+  justify-content: center; /* Centrar contenido */
+  align-items: center;
+}
+
+
+
+
+
 /* Portfolio Section */
 .portfolio {
   text-align: center;
@@ -150,7 +168,7 @@ body {
 
 /* About Section. Last section */
 .about {
-  padding: 50px 20px;
+  padding: 20px 20px;
   text-align: center;
   color: white;
   font-size: 18px;
@@ -386,7 +404,6 @@ body {
 
 .hero,
 .portfolio,
-.about,
-.contact {
+.about {
     padding: 20px 20px; /* Reducido de 50px a 30px */
 }
