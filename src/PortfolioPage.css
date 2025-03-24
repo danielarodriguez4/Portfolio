@@ -17,7 +17,7 @@
   font-weight: 700;
   color: rgba(255, 255, 255, 0.2); /* Blanco transparente */
   position: absolute;
-  top: 134px;
+  top: 155px;
   left: 50%; /* Centrar en relación con el padre */
   transform: translateX(-50%); /* Asegura el centrado exacto */
   z-index: 1;
