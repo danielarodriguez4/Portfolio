@@ -127,6 +127,7 @@ body {
 
 
 /* Hero Section */
+
 .hero {
   display: flex;
   justify-content: center; /* Centrar contenido */
@@ -137,7 +138,6 @@ body {
   background-image: url("/header.jpeg"); /* Imagen de fondo */
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   color: white;
   border-radius: 10px;
 }
