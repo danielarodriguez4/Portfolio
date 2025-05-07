@@ -66,7 +66,6 @@ body {
   background-repeat: no-repeat;
   color: white;
   border-radius: 10px;
-  margin-bottom: 5px ;
 }
 
 /* Agregar un overlay oscuro para mejorar el contraste */
@@ -154,7 +153,6 @@ body {
 
 .hero h2 {
   font-size: 24px;
-  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -173,14 +171,6 @@ body {
   border-radius: 10px;
 }
 
-/* About Section. Last section */
-.about {
-  padding: 20px 20px;
-  text-align: center;
-  color: white;
-  font-size: 18px;
-  justify-content: center;
-}
 
 /* Contact Section */
 .contact {
@@ -188,15 +178,6 @@ body {
   padding: 50px 20px;
 }
 
-
-/* Responsive Design */
-/* Galería de imágenes en cuadrícula 4x4 */
-.gallery {
-  display: grid !important; /* Asegurar que está en grid */
-  grid-template-columns: repeat(4, 1fr); /* Siempre 4 columnas */
-  gap: 10px; /* Espacio entre imágenes */
-  padding: 20px 0;
-}
 
 /* Cada imagen en la galería */
 .artwork img {
@@ -241,23 +222,23 @@ body {
 
   .header ul {
     flex-direction: column;
-    gap: 10px;
+    gap: 50px;
   }
 } 
 
 /* Modal */
 /* Estilos para el modal */
 .modal {
-  position: fixed;  /* 🔹 Se fija en toda la pantalla */
+  position: fixed;  
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* 🔹 Ocupa toda la altura de la pantalla */
-  background: rgba(0, 0, 0, 0.9); /* 🔹 Fondo oscuro */
+  height: 100vh; 
+  background: rgba(0, 0, 0, 0.9); 
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000; /* 🔹 Se asegura de estar encima de todo */
+  z-index: 1000; 
 }
 
 .modal-content {
@@ -333,7 +314,6 @@ body {
 }
 
 /* Estilos para el botón flotante de "Canales de contacto" */
-/* Estilos para el botón flotante de "Canales de contacto" */
 @keyframes blink {
   0% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -407,7 +387,6 @@ body {
   height: 24px;
 }
 
-/* LanguageSelector.css */
 .language-selector {
   display: flex;
   flex-direction: column;
@@ -448,7 +427,6 @@ body {
   background-color: #a04040;
 }
 
-/* Estilos existentes se mantienen */
 
 /* Estilos para el carrusel */
 .carousel-container {
