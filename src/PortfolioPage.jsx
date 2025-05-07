@@ -31,8 +31,8 @@ const PortfolioPage = () => {
         "Soy Omar, tatuador con 8 años de experiencia, viviendo actualmente en Medellín, Colombia, pero con posibilidad de llevar mi arte a cualquier lugar del mundo. Mi pasión por el arte me llevó a especializarme en el estilo tradicional, donde las líneas sólidas, los colores vibrantes y la estética atemporal se convierten en mi sello personal.",
       portfolio: "Conoce mi trabajo",
       contact: "Canales de contacto",
-      otherSection: "Otra sección",
-      otherContent: "Te quiero mucho precioso",
+      /* otherSection: "Otra sección",
+      otherContent: "Te quiero mucho precioso", */
       previous: "Anterior",
       next: "Siguiente",
       image: "Imagen",
@@ -44,8 +44,8 @@ const PortfolioPage = () => {
         "My name is Omar, a passionate tattoo artist with eight years of experience, currently based in Medellín, Colombia. My artistry knows no borders, as I strive to bring my work to every corner of the world. Specializing in the traditional style, I blend bold lines, vibrant colors, and a timeless aesthetic to create tattoos that leave a lasting impression.",
       portfolio: "See my work",
       contact: "Contact channels",
-      otherSection: "Section",
-      otherContent: "I love you so much, handsome",
+     /* otherSection: "Section",
+      otherContent: "I love you so much, handsome", */
       previous: "Previous",
       next: "Next",
       image: "Image",
