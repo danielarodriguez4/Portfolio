@@ -8,6 +8,7 @@ const PortfolioPage = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Redirige si no hay idioma seleccionado
   useEffect(() => {
@@ -27,6 +28,10 @@ const PortfolioPage = () => {
       contact: "Canales de contacto",
       otherSection: "Otra sección",
       otherContent: "Te quiero mucho precioso",
+      previous: "Anterior",
+      next: "Siguiente",
+      image: "Imagen",
+      of: "de"
     },
     en: {
       aboutMe: "About me",
@@ -36,6 +41,10 @@ const PortfolioPage = () => {
       contact: "Contact channels",
       otherSection: "Section",
       otherContent: "I love you so much, handsome",
+      previous: "Previous",
+      next: "Next",
+      image: "Image",
+      of: "of"
     },
   };
 
@@ -45,6 +54,18 @@ const PortfolioPage = () => {
     "/espaldatrad.jpeg", "/vasito.jpeg", "/idk.jpeg", "/hombre1.jpeg",
     "/hombre2.jpeg", "/aguila.jpeg", "/aguila2.jpeg"
   ];
+
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
     <div className="container">
@@ -65,12 +86,30 @@ const PortfolioPage = () => {
 
       <section id="portfolio" className="portfolio">
         <h2>{texts[language].portfolio}</h2>
-        <div className="gallery grid-layout">
-          {images.map((src, index) => (
-            <div key={index} className="artwork" onClick={() => setSelectedImage(src)}>
-              <img src={src} alt={`Artwork ${index + 1}`} />
+        <div className="carousel-container">
+          <div className="carousel">
+            <div 
+              className="carousel-image-container" 
+              onClick={() => setSelectedImage(images[currentImageIndex])}
+            >
+              <img 
+                src={images[currentImageIndex]} 
+                alt={`Artwork ${currentImageIndex + 1}`} 
+                className="carousel-image"
+              />
             </div>
-          ))}
+            <div className="carousel-controls">
+              <button className="carousel-button" onClick={goToPrevious}>
+                {texts[language].previous}
+              </button>
+              <span className="image-counter">
+                {texts[language].image} {currentImageIndex + 1} {texts[language].of} {images.length}
+              </span>
+              <button className="carousel-button" onClick={goToNext}>
+                {texts[language].next}
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
