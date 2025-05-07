@@ -163,6 +163,7 @@ body {
 /* Portfolio Section */
 .portfolio {
   text-align: center;
+  padding: 50px 20px;
 }
 
 .artwork img {
