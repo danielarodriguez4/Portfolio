@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./PortfolioPage.css";
 
@@ -9,6 +9,11 @@ const PortfolioPage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Referencias para la funcionalidad de deslizamiento
+  const carouselRef = useRef(null);
+  const startXRef = useRef(0);
+  const isDraggingRef = useRef(false);
 
   // Redirige si no hay idioma seleccionado
   useEffect(() => {
@@ -55,17 +60,83 @@ const PortfolioPage = () => {
     "/hombre2.jpeg", "/aguila.jpeg", "/aguila2.jpeg"
   ];
 
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setCurrentImageIndex((prevIndex) => 
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
-  };
+  }, [images.length]);
 
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentImageIndex((prevIndex) => 
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [images.length]);
+  
+  // Manejadores para gestos táctiles y mouse
+  const handleTouchStart = useCallback((e) => {
+    startXRef.current = e.touches[0].clientX;
+    isDraggingRef.current = true;
+  }, []);
+  
+  const handleTouchMove = useCallback((e) => {
+    if (!isDraggingRef.current) return;
+    
+    const currentX = e.touches[0].clientX;
+    const diff = startXRef.current - currentX;
+    
+    // Detectar dirección de deslizamiento
+    if (Math.abs(diff) > 50) { // umbral de 50px para considerar como deslizamiento
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrevious();
+      }
+      isDraggingRef.current = false;
+    }
+  }, [goToNext, goToPrevious]);
+  
+  const handleTouchEnd = useCallback(() => {
+    isDraggingRef.current = false;
+  }, []);
+  
+  const handleMouseDown = useCallback((e) => {
+    startXRef.current = e.clientX;
+    isDraggingRef.current = true;
+    
+    // Prevenir que se seleccione texto durante el arrastre
+    e.preventDefault();
+  }, []);
+  
+  const handleMouseMove = useCallback((e) => {
+    if (!isDraggingRef.current) return;
+    
+    const currentX = e.clientX;
+    const diff = startXRef.current - currentX;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrevious();
+      }
+      isDraggingRef.current = false;
+    }
+  }, [goToNext, goToPrevious]);
+  
+  const handleMouseUp = useCallback(() => {
+    isDraggingRef.current = false;
+  }, []);
+  
+  // Añadir manejadores de eventos globales para mouse
+  useEffect(() => {
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [handleMouseMove, handleMouseUp]);
 
   return (
     <div className="container">
@@ -87,17 +158,46 @@ const PortfolioPage = () => {
       <section id="portfolio" className="portfolio">
         <h2>{texts[language].portfolio}</h2>
         <div className="carousel-container">
-          <div className="carousel">
-            <div 
-              className="carousel-image-container" 
-              onClick={() => setSelectedImage(images[currentImageIndex])}
-            >
-              <img 
-                src={images[currentImageIndex]} 
-                alt={`Artwork ${currentImageIndex + 1}`} 
-                className="carousel-image"
-              />
+          <div 
+            className="carousel advanced-carousel" 
+            ref={carouselRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+          >
+            <div className="carousel-track">
+              {/* Imagen previa (borrosa) */}
+              <div className="carousel-item carousel-item-previous">
+                <img
+                  src={images[(currentImageIndex - 1 + images.length) % images.length]}
+                  alt="Previous artwork"
+                  className="carousel-image blurred"
+                />
+              </div>
+              
+              {/* Imagen actual (enfocada) */}
+              <div 
+                className="carousel-item carousel-item-current" 
+                onClick={() => setSelectedImage(images[currentImageIndex])}
+              >
+                <img
+                  src={images[currentImageIndex]}
+                  alt={`Artwork ${currentImageIndex + 1}`}
+                  className="carousel-image"
+                />
+              </div>
+              
+              {/* Imagen siguiente (borrosa) */}
+              <div className="carousel-item carousel-item-next">
+                <img
+                  src={images[(currentImageIndex + 1) % images.length]}
+                  alt="Next artwork"
+                  className="carousel-image blurred"
+                />
+              </div>
             </div>
+            
             <div className="carousel-controls">
               <button className="carousel-button" onClick={goToPrevious}>
                 {texts[language].previous}

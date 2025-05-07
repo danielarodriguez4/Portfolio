@@ -567,32 +567,115 @@ body {
   .carousel-image-container {
     height: 350px;
   }
+}
   
-  .carousel-controls {
-    padding: 10px 0;
+ /* Nuevos estilos para el carrusel con deslizamiento */
+
+/* Contenedor principal del carrusel */
+.advanced-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: grab;
+  padding: 20px 0;
+}
+
+.advanced-carousel:active {
+  cursor: grabbing;
+}
+
+/* Track para las imágenes */
+.carousel-track {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  height: 400px;
+}
+
+/* Estilos para cada item del carrusel */
+.carousel-item {
+  position: absolute;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Item actual (central) */
+.carousel-item-current {
+  z-index: 3;
+  width: 70%;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Items anterior y siguiente */
+.carousel-item-previous,
+.carousel-item-next {
+  width: 40%;
+  height: 80%;
+  z-index: 1;
+}
+
+.carousel-item-previous {
+  left: 0;
+  transform: translateX(-30%);
+}
+
+.carousel-item-next {
+  right: 0;
+  transform: translateX(30%);
+}
+
+/* Efecto de desenfoque para imágenes laterales */
+.carousel-image.blurred {
+  filter: blur(3px) brightness(0.7);
+  transition: filter 0.3s ease;
+}
+
+/* Asegurar que todas las imágenes tengan el mismo estilo base */
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item-current img {
+  object-fit: contain;
+}
+
+/* Mejorar la accesibilidad táctil */
+@media (max-width: 768px) {
+  .carousel-track {
+    height: 350px;
   }
   
-  .carousel-button {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-  }
-  
-  .image-counter {
-    font-size: 0.8rem;
+  .carousel-item-previous,
+  .carousel-item-next {
+    width: 30%;
   }
 }
 
 @media (max-width: 480px) {
-  .carousel-image-container {
-    height: 250px;
+  .carousel-track {
+    height: 300px;
   }
   
-  .carousel-button {
-    padding: 5px 10px;
-    font-size: 0.8rem;
+  .carousel-item-current {
+    width: 75%;
   }
   
-  .modal-content img {
-    max-height: 80vh;
+  .carousel-item-previous,
+  .carousel-item-next {
+    width: 25%;
+  }
+  
+  .carousel-image.blurred {
+    filter: blur(2px) brightness(0.6);
   }
 }
